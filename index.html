@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>noteでSEO発信を仕組み化｜SuTENA合同会社</title>
+  <meta name="description" content="1記事2〜4時間が、朝5分になる。noteでSEO対策しながら、AIで発信を仕組み化するセットアップサービス。6月限定・先着3名。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      /* note カラーパレット */
+      --teal:       #3DC8BE;
+      --teal-dark:  #1A3D4A;
+      --teal-mid:   #2A9D94;
+      --teal-light: #EAF8F7;
+      --teal-pale:  #F2FBFA;
+      --cream:      #F5F0E8;
+      --cream-dark: #EDE7DC;
+      --navy:       #1A2E38;
+      --text:       #1A1A2E;
+      --gray:       #6B7685;
+      --gray-light: #F7F8F9;
+      --border:     #DFF0EE;
+      --white:      #FFFFFF;
+      --orange:     #E07B39;
+      --orange-pale:#FDF3EC;
+      --r-sm:  8px;
+      --r-md:  16px;
+      --r-lg:  24px;
+      --r-xl:  32px;
+      --sh:    0 2px 16px rgba(61,200,190,0.12);
+      --sh-md: 0 8px 40px rgba(26,61,74,0.12);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Sans JP', 'Hiragino Sans', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ── HEADER ── */
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      height: 60px; padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 15px; font-weight: 700; color: var(--teal-dark);
+    }
+    .logo-icon {
+      width: 30px; height: 30px; border-radius: 8px;
+      background: var(--teal); display: flex; align-items: center;
+      justify-content: center;
+    }
+    .logo-icon svg { width: 18px; height: 18px; fill: white; }
+    .h-cta {
+      background: var(--teal); color: var(--white);
+      padding: 8px 20px; border-radius: 100px;
+      font-size: 13px; font-weight: 700;
+      transition: background .2s, transform .15s;
+    }
+    .h-cta:hover { background: var(--teal-mid); transform: translateY(-1px); }
+
+    /* ── LAYOUT ── */
+    section { padding: 88px 24px; }
+    .inner  { max-width: 680px; margin: 0 auto; }
+    .inner-w{ max-width: 900px; margin: 0 auto; }
+
+    /* ── LABEL ── */
+    .label {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 18px; font-weight: 700; letter-spacing: .06em;
+      text-transform: uppercase; color: var(--teal-mid);
+      margin-bottom: 10px;
+    }
+    .label-dot {
+      width: 6px; height: 6px; border-radius: 50%; background: var(--teal);
+    }
+
+    /* ── HEADING ── */
+    h2 {
+      font-size: clamp(24px, 4.5vw, 36px);
+      font-weight: 900; line-height: 1.35; color: var(--teal-dark);
+    }
+    .lead { font-size: 15px; color: var(--gray); margin-top: 12px; line-height: 1.85; }
+
+    /* ── BADGE ── */
+    .badge {
+      display: inline-flex; align-items: center;
+      background: var(--orange); color: white;
+      font-size: 16px; font-weight: 700;
+      padding: 8px 20px; border-radius: 100px; letter-spacing: .04em;
+    }
+    .badge-teal {
+      background: var(--teal-light); color: var(--teal-dark);
+    }
+
+    /* ── TAG ── */
+    .tag {
+      display: inline-block;
+      border: 1.5px solid var(--teal-dark);
+      color: var(--teal-dark); font-size: 18px; font-weight: 500;
+      padding: 4px 14px; border-radius: 100px; margin: 3px;
+    }
+
+    /* ─────────────────────────────
+       HERO
+    ───────────────────────────── */
+    #hero {
+      padding-top: 100px; padding-bottom: 80px;
+      background: var(--cream);
+      overflow: hidden;
+    }
+    .hero-wrap {
+      max-width: 680px; margin: 0 auto;
+      padding: 0 0 0 0;
+    }
+    .hero-eyebrow {
+      display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .hero-h1 {
+      font-size: clamp(22px, 5vw, 40px);
+      font-weight: 900; line-height: 1.25;
+      color: var(--teal-dark);
+    }
+    .hero-h1 em {
+      font-style: normal;
+      color: var(--teal);
+      position: relative;
+    }
+    .hero-h1 em::after {
+      content: '';
+      position: absolute; bottom: 2px; left: 0; right: 0;
+      height: 4px; border-radius: 2px;
+      background: var(--teal); opacity: .3;
+    }
+    .hero-desc {
+      font-size: 16px; color: var(--gray);
+      margin-top: 18px; line-height: 1.8;
+    }
+    .hero-tags { margin-top: 20px; }
+    /* FV image placeholder */
+    .hero-img-wrap {
+      margin-top: 44px;
+      background: var(--teal-light);
+      border-top: 2px dashed var(--teal);
+      min-height: 320px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 10px;
+      color: var(--teal-mid);
+    }
+    .hero-img-wrap p { font-size: 13px; font-weight: 500; opacity: .7; }
+
+    /* ─────────────────────────────
+       PAIN — ダークネイビー背景
+    ───────────────────────────── */
+    #pain {
+      background: var(--teal-dark);
+      padding: 88px 24px;
+    }
+    #pain .label { color: var(--teal); }
+    #pain h2 { color: var(--white); }
+    #pain .lead { color: rgba(255,255,255,.65); }
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 14px; margin-top: 36px;
+    }
+    .pain-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--r-md);
+      padding: 18px 20px;
+      display: flex; align-items: flex-start; gap: 12px;
+      backdrop-filter: blur(6px);
+    }
+    .pain-no {
+      flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%;
+      background: rgba(61,200,190,0.2); border: 1px solid var(--teal);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 700; color: var(--teal);
+    }
+    .pain-card p { font-size: 14px; color: rgba(255,255,255,.85); line-height: 1.65; }
+
+    /* ─────────────────────────────
+       ARROW
+    ───────────────────────────── */
+    .arrow-divider {
+      background: var(--teal-dark);
+      text-align: center; padding: 0 24px 48px;
+    }
+    .arrow-pill {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--teal); color: white;
+      font-size: 13px; font-weight: 700;
+      padding: 12px 28px; border-radius: 100px;
+      box-shadow: 0 4px 20px rgba(61,200,190,0.4);
+    }
+
+    /* ─────────────────────────────
+       AFTER — クリーム背景
+    ───────────────────────────── */
+    #after { background: var(--cream); }
+    .after-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 14px; margin-top: 36px;
+    }
+    .after-card {
+      background: var(--white);
+      border: 1.5px solid var(--teal);
+      border-radius: var(--r-md);
+      padding: 20px;
+      box-shadow: var(--sh);
+    }
+    .after-icon-wrap {
+      width: 44px; height: 44px; border-radius: var(--r-sm);
+      background: var(--teal-light);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 12px;
+    }
+    .after-card h3 { font-size: 14px; font-weight: 700; color: var(--teal-dark); line-height: 1.5; }
+    .after-card p { font-size: 13px; color: var(--gray); margin-top: 4px; line-height: 1.65; }
+
+    /* ─────────────────────────────
+       HOW — 白背景
+    ───────────────────────────── */
+    #how { background: var(--white); }
+    .how-card {
+      background: var(--teal-pale);
+      border: 1px solid var(--border);
+      border-radius: var(--r-xl);
+      padding: 32px 36px;
+      margin-top: 36px;
+    }
+    .how-row {
+      display: flex; align-items: center; gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .how-row:last-of-type { border-bottom: none; }
+    .how-step {
+      flex-shrink: 0; width: 36px; height: 36px; border-radius: var(--r-sm);
+      background: var(--teal); color: white;
+      font-size: 13px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .how-text { font-size: 14px; color: var(--text); flex: 1; }
+    .how-time {
+      flex-shrink: 0; font-size: 13px; font-weight: 700;
+      color: var(--teal-mid); white-space: nowrap;
+    }
+    .how-total {
+      margin-top: 20px;
+      background: var(--teal-dark); color: white;
+      border-radius: var(--r-md);
+      padding: 16px 24px;
+      font-size: 15px; font-weight: 700; text-align: right;
+    }
+    .how-total span { color: var(--teal); font-size: 20px; }
+
+    /* ─────────────────────────────
+       DELIVERABLES
+    ───────────────────────────── */
+    #deliverables { background: var(--cream); }
+    .dl-grid {
+      display: grid; gap: 14px; margin-top: 36px;
+    }
+    .dl-card {
+      background: var(--white);
+      border: 1px solid var(--cream-dark);
+      border-radius: var(--r-lg);
+      padding: 24px 28px;
+      display: flex; gap: 20px; align-items: flex-start;
+      box-shadow: var(--sh);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .dl-card:hover { transform: translateY(-2px); box-shadow: var(--sh-md); }
+    .dl-num {
+      flex-shrink: 0; width: 44px; height: 44px; border-radius: var(--r-sm);
+      background: var(--teal-light);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; font-weight: 900; color: var(--teal-dark);
+    }
+    .dl-card h3 { font-size: 15px; font-weight: 700; color: var(--teal-dark); margin-bottom: 6px; }
+    .dl-card p  { font-size: 13px; color: var(--gray); line-height: 1.75; }
+    .dl-tags { margin-top: 10px; }
+    .dl-tag {
+      display: inline-block;
+      background: var(--teal-light);
+      color: var(--teal-dark); font-size: 11px; font-weight: 500;
+      padding: 4px 10px; border-radius: 100px; margin: 2px;
+    }
+    .dl-card.special {
+      border: 2px solid var(--orange);
+      background: var(--orange-pale);
+    }
+    .dl-card.special .dl-num {
+      background: #FDEEE6; color: var(--orange);
+    }
+
+    /* ─────────────────────────────
+       PRICE
+    ───────────────────────────── */
+    #price { background: var(--teal-dark); }
+    #price .label { color: var(--teal); }
+    #price h2 { color: var(--white); }
+    .price-card {
+      margin-top: 36px;
+      background: var(--white);
+      border-radius: var(--r-xl);
+      padding: 40px;
+      position: relative; overflow: hidden;
+    }
+    .price-card::before {
+      content: '';
+      position: absolute; top: 0; right: 0;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle at top right, rgba(61,200,190,0.12) 0%, transparent 70%);
+    }
+    .price-strike {
+      font-size: 18px; text-decoration: line-through; color: var(--gray);
+    }
+    .price-val {
+      font-size: clamp(40px, 7vw, 56px);
+      font-weight: 900; line-height: 1; color: var(--teal-dark);
+      margin: 8px 0;
+    }
+    .price-val span { font-size: 16px; font-weight: 400; color: var(--gray); }
+    .price-badge-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; }
+    .price-includes {
+      display: flex; flex-direction: column; gap: 10px;
+      margin-top: 20px;
+    }
+    .price-item {
+      display: flex; align-items: center; gap: 12px;
+      font-size: 14px; color: var(--text);
+    }
+    .price-item::before {
+      content: '';
+      flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%;
+      background: var(--teal); display: flex; align-items: center;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.5 8l3 3 6-6' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-size: 16px; background-repeat: no-repeat; background-position: center;
+    }
+    .price-cta {
+      margin-top: 32px; display: block; text-align: center;
+      background: var(--teal); color: white;
+      font-size: 18px; font-weight: 700;
+      padding: 18px 40px; border-radius: 100px;
+      box-shadow: 0 6px 24px rgba(61,200,190,0.4);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .price-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 36px rgba(61,200,190,0.5); }
+    .price-note { font-size: 12px; color: var(--gray); text-align: center; margin-top: 12px; }
+
+    /* ─────────────────────────────
+       STEPS
+    ───────────────────────────── */
+    #steps { background: var(--cream); }
+    .steps-wrap { margin-top: 36px; }
+    .step {
+      display: flex; gap: 20px; align-items: flex-start;
+      position: relative;
+    }
+    .step:not(:last-child)::after {
+      content: '';
+      position: absolute; left: 21px; top: 50px;
+      width: 2px; height: calc(100% - 26px);
+      background: linear-gradient(to bottom, var(--teal), var(--teal-light));
+    }
+    .step-dot {
+      flex-shrink: 0; width: 44px; height: 44px; border-radius: var(--r-sm);
+      background: var(--teal); color: white;
+      font-size: 16px; font-weight: 900;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; z-index: 1;
+      box-shadow: 0 4px 12px rgba(61,200,190,0.35);
+    }
+    .step-body { padding: 8px 0 40px; }
+    .step-body h3 { font-size: 15px; font-weight: 700; color: var(--teal-dark); }
+    .step-body p  { font-size: 13px; color: var(--gray); margin-top: 4px; line-height: 1.7; }
+
+    /* ─────────────────────────────
+       FAQ
+    ───────────────────────────── */
+    #faq { background: var(--white); }
+    .faq-list { margin-top: 36px; display: flex; flex-direction: column; gap: 10px; }
+    details {
+      background: var(--teal-pale);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      overflow: hidden;
+    }
+    summary {
+      padding: 18px 20px;
+      font-size: 14px; font-weight: 500;
+      cursor: pointer; list-style: none;
+      display: flex; align-items: center; gap: 14px;
+      color: var(--teal-dark);
+    }
+    summary::-webkit-details-marker { display: none; }
+    .q-icon {
+      flex-shrink: 0; width: 28px; height: 28px; border-radius: var(--r-sm);
+      background: var(--teal); color: white; font-size: 12px; font-weight: 900;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .faq-toggle {
+      margin-left: auto;
+      width: 24px; height: 24px; border-radius: 50%;
+      background: var(--white); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; color: var(--teal); font-weight: 300;
+      transition: transform .2s;
+      flex-shrink: 0;
+    }
+    details[open] .faq-toggle { transform: rotate(45deg); }
+    .faq-body {
+      padding: 0 20px 18px 62px;
+      font-size: 13px; color: var(--gray); line-height: 1.85;
+    }
+
+    /* ─────────────────────────────
+       PROFILE
+    ───────────────────────────── */
+    #profile { background: var(--teal-dark); }
+    #profile .label { color: var(--teal); }
+    #profile h2 { color: white; margin-bottom: 32px; }
+    .profile-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--r-xl);
+      padding: 36px;
+      display: flex; gap: 28px; align-items: flex-start;
+      backdrop-filter: blur(6px);
+    }
+    .avatar {
+      flex-shrink: 0; width: 88px; height: 88px;
+      border-radius: var(--r-lg);
+      background: var(--teal-light);
+      border: 3px solid var(--teal);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 36px;
+    }
+    .pname { font-size: 20px; font-weight: 700; color: white; }
+    .prole { font-size: 13px; color: var(--teal); font-weight: 500; margin: 4px 0 14px; }
+    .pbio  { font-size: 13px; color: rgba(255,255,255,.7); line-height: 1.85; }
+    .pcontact { margin-top: 14px; font-size: 13px; color: rgba(255,255,255,.55); }
+    .pcontact a { color: var(--teal); }
+
+    /* ─────────────────────────────
+       FINAL CTA
+    ───────────────────────────── */
+    #cta {
+      background: var(--teal);
+      padding: 88px 24px;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    #cta::before {
+      content: '';
+      position: absolute; top: -100px; left: 50%;
+      transform: translateX(-50%);
+      width: 600px; height: 600px; border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+      pointer-events: none;
+    }
+    #cta .label { color: rgba(255,255,255,0.7); }
+    #cta h2 { color: white; }
+    #cta p { color: rgba(255,255,255,.8); font-size: 15px; margin: 14px 0 36px; }
+    .cta-btn {
+      display: inline-block;
+      background: var(--white); color: var(--teal-dark);
+      font-size: 18px; font-weight: 900;
+      padding: 20px 56px; border-radius: 100px;
+      box-shadow: 0 8px 32px rgba(26,61,74,0.2);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 14px 48px rgba(26,61,74,0.3); }
+    .cta-sub { margin-top: 16px; font-size: 12px; color: rgba(255,255,255,.55); }
+
+    /* ─────────────────────────────
+       FOOTER
+    ───────────────────────────── */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,.5);
+      padding: 36px 24px; text-align: center;
+      font-size: 12px; line-height: 1.9;
+    }
+    footer strong { color: rgba(255,255,255,.75); }
+    footer a { color: var(--teal); }
+
+    /* ─────────────────────────────
+       STICKY CTA
+    ───────────────────────────── */
+    .sticky-cta {
+      display: none;
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 99;
+      padding: 12px 20px 20px;
+      background: white;
+      border-top: 1px solid var(--border);
+      box-shadow: 0 -4px 24px rgba(0,0,0,.08);
+    }
+    .sticky-cta a {
+      display: block; text-align: center;
+      background: var(--teal); color: white;
+      font-size: 15px; font-weight: 700;
+      padding: 14px; border-radius: 100px;
+    }
+
+    /* ─────────────────────────────
+       RESPONSIVE
+    ───────────────────────────── */
+    @media (max-width: 600px) {
+      section { padding: 64px 20px; }
+      .profile-card { flex-direction: column; }
+      .price-card { padding: 28px 22px; }
+      .how-card { padding: 24px 20px; }
+      .sticky-cta { display: block; }
+      #cta { padding-bottom: 100px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header>
+  <div class="logo">
+    <div class="logo-icon">
+      <svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z" opacity="0"/><path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2zm-7 14H8v-2h4v2zm4-4H8v-2h8v2zm0-4H8V7h8v2z"/></svg>
+    </div>
+    SuTENA
+  </div>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSc_HdtWNE0VqrvJY07bbC4O0P9nkbGmwbDWCvJvkWnaRAFIaA/viewform?usp=dialog" target="_blank" rel="noopener" class="h-cta">今すぐ申し込む →</a>
+</header>
+
+
+<!-- ══════════════════════════════
+     HERO
+══════════════════════════════ -->
+<section id="hero">
+  <div class="hero-wrap inner">
+    <div class="hero-eyebrow">
+      <span class="badge">6月限定・先着3名</span>
+      <span class="badge" style="background:var(--teal);color:white">半額キャンペーン中</span>
+    </div>
+
+    <h1 class="hero-h1">
+      note投稿 1記事2〜4時間が、<br><em>朝5分</em>になる！
+    </h1>
+
+    <p class="hero-desc">
+      noteでSEO対策しながら、AIで発信を仕組み化する<br>セットアップサービス
+    </p>
+
+    <div class="hero-tags">
+      <span class="tag">企業</span>
+      <span class="tag">個人事業主</span>
+      <span class="tag">note初心者歓迎</span>
+      <span class="tag">業種不問</span>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ══════════════════════════════
+     PAIN — ダークネイビー
+══════════════════════════════ -->
+<section id="pain">
+  <div class="inner">
+    <div class="label"><span class="label-dot"></span>こんな悩みはありませんか？</div>
+    <h2>発信したいのに、<br>時間がかかりすぎて続かない</h2>
+    <p class="lead" style="color:rgba(255,255,255,.6)">せっかく始めたnoteも、こんな壁にぶつかっていませんか。</p>
+
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="pain-no">01</div>
+        <p>noteを始めたが、数回で<br>止まってしまった</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-no">02</div>
+        <p>1記事に2〜4時間も<br>かかってしまう</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-no">03</div>
+        <p>テーマ・文章・サムネが<br>毎回ゼロから</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-no">04</div>
+        <p>SEOに効くと知っていても<br>着手できない</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARROW -->
+<div class="arrow-divider">
+  <div class="arrow-pill">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="white" stroke-width="2">
+      <path d="M10 3v14M4 11l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    セットアップ後はこう変わります
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════
+     AFTER — クリーム
+══════════════════════════════ -->
+<section id="after">
+  <div class="inner">
+    <div class="label"><span class="label-dot"></span>セットアップ後</div>
+    <h2>週1〜2時間で、<br>10日分の記事が揃う</h2>
+    <p class="lead">一度仕組みを作れば、あとは流すだけ。</p>
+
+    <div class="after-grid">
+      <div class="after-card">
+        <div class="after-icon-wrap">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#3DC8BE" stroke-width="2">
+            <circle cx="11" cy="11" r="9"/>
+            <path d="M11 7v4l3 3" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>毎朝5分で発信できる状態に</h3>
+        <p>テンプレとプロンプトで、起動してすぐ記事が完成。</p>
+      </div>
+      <div class="after-card">
+        <div class="after-icon-wrap">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#3DC8BE" stroke-width="2">
+            <path d="M4 6h14M4 10h14M4 14h10" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>週1〜2時間で10日分の記事が揃う</h3>
+        <p>量産フローで一気に記事ストックを作れる。</p>
+      </div>
+      <div class="after-card">
+        <div class="after-icon-wrap">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#3DC8BE" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7" rx="1"/>
+            <rect x="12" y="3" width="7" height="7" rx="1"/>
+            <rect x="3" y="12" width="7" height="7" rx="1"/>
+            <path d="M12 15h7M15.5 12v6" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>テーマ・文章・画像すべてAIが補助</h3>
+        <p>Claude＋ChatGPTで、テキストも画像も自動生成。</p>
+      </div>
+      <div class="after-card">
+        <div class="after-icon-wrap">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#3DC8BE" stroke-width="2">
+            <path d="M3 17l4-4 4 4 4-6 4 2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3>noteがSEOの資産として積み上がる</h3>
+        <p>キーワード設計済みの記事が検索流入を生み続ける。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════
+     HOW IT WORKS
+══════════════════════════════ -->
+<section id="how">
+  <div class="inner">
+    <div class="label"><span class="label-dot"></span>週次運用イメージ</div>
+    <h2>週に<span style="color:var(--teal)">1時間</span>で、<br>10日分のコンテンツを量産</h2>
+    <p class="lead">セットアップ後の実際の運用フロー。</p>
+
+    <div class="how-card">
+      <div class="how-row">
+        <div class="how-step">①</div>
+        <p class="how-text">Claudeで10記事分のテーマ・本文を一括生成</p>
+        <span class="how-time">約15分</span>
+      </div>
+      <div class="how-row">
+        <div class="how-step">②</div>
+        <p class="how-text">ChatGPTでサムネイル・挿絵を量産</p>
+        <span class="how-time">約15分</span>
+      </div>
+      <div class="how-row">
+        <div class="how-step">③</div>
+        <p class="how-text">noteに貼り付け・予約投稿設定</p>
+        <span class="how-time">約15分</span>
+      </div>
+      <div class="how-row">
+        <div class="how-step">④</div>
+        <p class="how-text">挿絵・アイキャッチを差し込んで完成</p>
+        <span class="how-time">約15分</span>
+      </div>
+      <div class="how-total">
+        合計 <span>約60分</span> → 10日分の記事ストック完成
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════
+     DELIVERABLES
+══════════════════════════════ -->
+<section id="deliverables">
+  <div class="inner">
+    <div class="label"><span class="label-dot"></span>提供内容</div>
+    <h2>あなたの型を、<br>一緒に設計する</h2>
+    <p class="lead">対面セッションから納品物まで、必要なものがすべて揃います。</p>
+
+    <div class="dl-grid">
+      <div class="dl-card">
+        <div class="dl-num">①</div>
+        <div>
+          <h3>対面 3時間 セットアップセッション<br><small style="font-size:13px;font-weight:400;color:var(--gray)">（遠方の場合はZoom）</small></h3>
+          <p>前半：業種・テーマ・SEOキーワードの設計<br>後半：あなたの型を実際に一緒に作る。<br>その場で1記事を5分以内で作成する体験つき</p>
+        </div>
+      </div>
+
+      <div class="dl-card">
+        <div class="dl-num">②</div>
+        <div>
+          <h3>納品物 6点</h3>
+          <div class="dl-tags">
+            <span class="dl-tag">記事作成プロンプト</span>
+            <span class="dl-tag">サムネイル生成プロンプト（ChatGPT）</span>
+            <span class="dl-tag">挿絵生成プロンプト（ChatGPT）</span>
+            <span class="dl-tag">記事構成テンプレ</span>
+            <span class="dl-tag">運用フロー手順書</span>
+            <span class="dl-tag">Claude活用マニュアル</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dl-card">
+        <div class="dl-num">③</div>
+        <div>
+          <h3>1ヶ月チャットサポート</h3>
+          <p>LINE または Messenger｜平日10〜18時・24時間以内返信｜回数制限なし</p>
+        </div>
+      </div>
+
+      <div class="dl-card special">
+        <div class="dl-num">④</div>
+        <div>
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px">
+            <h3 style="margin:0">Claude Code 1週間 無料トライアルパス</h3>
+            <span class="badge">先着3名限定</span>
+          </div>
+          <p>Anthropic公式ゲストパス。CoworkとClaude Code両方を1週間無料で体験できます。セッション前日にお渡し</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════
+     PRICE — ダークネイビー
+══════════════════════════════ -->
+<section id="price">
+  <div class="inner">
+    <div class="label"><span class="label-dot"></span>料金</div>
+    <h2>6月中だけの特別価格</h2>
+
+    <div class="price-card">
+      <p class="price-strike">定価 220,000円</p>
+      <div class="price-val">110,000<span>円（税込）</span></div>
+      <div class="price-badge-row">
+        <span class="badge">6月中のみ半額</span>
+        <span class="badge badge-teal">先着3名限定</span>
+      </div>
+      <hr style="border:none;border-top:1px solid var(--border);margin:20px 0">
+      <div class="price-includes">
+        <div class="price-item">対面 3時間 セットアップセッション（遠方の場合はZoom）</div>
+        <div class="price-item">納品物6点（プロンプト・テンプレ・マニュアルほか）</div>
+        <div class="price-item">1ヶ月チャットサポート（回数無制限）</div>
+        <div class="price-item">Claude Code 1週間無料トライアルパス（先着3名）</div>
+      </div>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSc_HdtWNE0VqrvJY07bbC4O0P9nkbGmwbDWCvJvkWnaRAFIaA/viewform?usp=dialog" target="_blank" rel="noopener" class="price-cta">今すぐ申し込む →</a>
+      <p class="price-note">先着3名のため、お早めにどうぞ。枠が埋まり次第終了となります。</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════
+     STEPS
+══════════════════════════════ -->
+<section id="steps">
+  <div class="inner">
+    <div class="label"><span class="label-dot"></span>お申込みの流れ</div>
+    <h2>申し込みから始まるまで、<br>5ステップ</h2>
+
+    <div class="steps-wrap">
+      <div class="step">
+        <div class="step-dot">1</div>
+        <div class="step-body">
+          <h3>フォームからお申込み</h3>
+          <p>下記フォームに必要事項をご記入ください。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-dot">2</div>
+        <div class="step-body">
+          <h3>日程調整・請求書送付</h3>
+          <p>ご希望の日程をお伺いし、請求書をお送りします。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-dot">3</div>
+        <div class="step-body">
+          <h3>お振込み確認後、ゲストパスをお渡し</h3>
+          <p>入金確認後、セッション前日までにClaude Codeゲストパスをお渡しします。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-dot">4</div>
+        <div class="step-body">
+          <h3>対面 3時間セッション実施<small style="font-size:13px;font-weight:400;color:var(--gray)">（遠方の場合はZoom）</small></h3>
+          <p>あなたの業種・テーマに合わせて、その場で型を作ります。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-dot">5</div>
+        <div class="step-body">
+          <h3>納品物お渡し・1ヶ月サポート開始</h3>
+          <p>セッション後、6点の納品物を送付。翌日からサポートがスタートします。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════
+     FAQ
+══════════════════════════════ -->
+<section id="faq">
+  <div class="inner">
+    <div class="label"><span class="label-dot"></span>よくある質問</div>
+    <h2>気になること、<br>まとめてお答えします</h2>
+
+    <div class="faq-list">
+      <details>
+        <summary>
+          <div class="q-icon">Q</div>
+          noteをまだ開設していませんが大丈夫ですか？
+          <div class="faq-toggle">+</div>
+        </summary>
+        <p class="faq-body">もちろん大丈夫です。セッション前に簡単なチェックリストをお渡しするので、アカウント作成からご一緒にサポートします。</p>
+      </details>
+      <details>
+        <summary>
+          <div class="q-icon">Q</div>
+          ClaudeやChatGPTを使ったことがない初心者でも使えますか？
+          <div class="faq-toggle">+</div>
+        </summary>
+        <p class="faq-body">はい、まったく問題ありません。セッションの中で実際に操作しながら、あなた専用のプロンプトとマニュアルを作成します。セッション後に迷ったときは1ヶ月サポートでフォローします。</p>
+      </details>
+      <details>
+        <summary>
+          <div class="q-icon">Q</div>
+          業種・ジャンルに制限はありますか？
+          <div class="faq-toggle">+</div>
+        </summary>
+        <p class="faq-body">業種不問です。士業・コーチ・治療家・EC・サービス業など、さまざまな業種の方にご活用いただけます。セッションでそれぞれの業種に合ったSEOキーワードを設計します。</p>
+      </details>
+      <details>
+        <summary>
+          <div class="q-icon">Q</div>
+          セッション後に記事の品質が保てるか不安です
+          <div class="faq-toggle">+</div>
+        </summary>
+        <p class="faq-body">1ヶ月間のチャットサポートがあるため、実際に記事を作りながら気になる点をすぐに質問できます。また、納品物の「運用フロー手順書」に沿って進めることで、ブレずに品質を保てます。</p>
+      </details>
+      <details>
+        <summary>
+          <div class="q-icon">Q</div>
+          支払い方法は何がありますか？
+          <div class="faq-toggle">+</div>
+        </summary>
+        <p class="faq-body">銀行振込にて承っております。請求書払い・法人請求書の発行にも対応しています。詳しくはお申込みフォームのご連絡後にご案内いたします。</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════
+     FINAL CTA — ティール
+══════════════════════════════ -->
+<section id="cta">
+  <div class="inner" style="position:relative;z-index:1">
+    <div class="label" style="justify-content:center"><span style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.5);display:block"></span><span style="font-size:16px;font-weight:700;letter-spacing:.06em">残り枠わずか</span></div>
+    <h2 style="color:white;text-align:center;font-size:clamp(24px,5vw,38px)">
+      6月中のうちに、<br>発信の仕組みを手に入れませんか？
+    </h2>
+    <p style="text-align:center;font-size:18px;line-height:1.9">
+      先着3名・6月末まで限定。<br>
+      定価220,000円 → <strong style="color:white;font-size:22px">110,000円（税込）</strong>
+    </p>
+
+    <!-- ▼ フォームURLが決まったらhrefを差し替えてください -->
+    <div style="text-align:center">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSc_HdtWNE0VqrvJY07bbC4O0P9nkbGmwbDWCvJvkWnaRAFIaA/viewform?usp=dialog" class="cta-btn">お申込みフォームへ →</a>
+    </div>
+    <p class="cta-sub">お問い合わせ：LINE / Messenger にてもご相談受付中</p>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════
+     PROFILE — ダークネイビー
+══════════════════════════════ -->
+<section id="profile">
+  <div class="inner">
+    <div class="label"><span class="label-dot"></span>提供者</div>
+    <h2>SuTENA合同会社</h2>
+
+    <div class="profile-card">
+      <div class="avatar">🌿</div>
+      <div>
+        <div class="pname">小出 梨就（Koide Rina）</div>
+        <div class="prole">SuTENA合同会社 代表</div>
+        <p class="pbio">
+          看護師・保健師として医療現場を経験後、AIと発信の掛け合わせで情報発信を仕組み化。Claude・ChatGPTを活用したコンテンツ自動化を実践・提供中。noteのSEO設計とAIプロンプト設計で、忙しい企業・個人事業主の発信をサポートしています。
+        </p>
+        <p class="pcontact">
+          お問い合わせ：LINE / Messenger<br>
+          HP：<a href="https://sutena.jp">sutena.jp</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ─── LEGAL MODALS ─── -->
+<div id="modal-overlay" onclick="closeModal()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:1000;cursor:pointer"></div>
+
+<div id="modal-tokushoho" class="lmodal" style="display:none">
+  <button class="lmodal-close" onclick="closeModal()" aria-label="閉じる">✕</button>
+  <h3 class="ltitle">特定商取引法に基づく表記</h3>
+  <table class="ltable">
+    <tr><td>販売業者</td><td>SuTENA合同会社</td></tr>
+    <tr><td>代表責任者</td><td>小出 梨就</td></tr>
+    <tr><td>所在地</td><td>〒103-0022 東京都中央区日本橋室町1-11-12 日本橋水野ビル7階</td></tr>
+    <tr><td>電話番号</td><td>請求があり次第開示します</td></tr>
+    <tr><td>メールアドレス</td><td>info@sutena.jp またはLINE/Messengerにてお問い合わせください</td></tr>
+    <tr><td>サービス名</td><td>note 5分発信セットアップ</td></tr>
+    <tr><td>販売価格</td><td>110,000円（税込）※6月限定価格／通常価格 220,000円（税込）</td></tr>
+    <tr><td>販売価格以外の費用</td><td>なし（通信費・端末代等はお客様負担）</td></tr>
+    <tr><td>支払い方法</td><td>銀行振込 / クレジットカード決済</td></tr>
+    <tr><td>支払い時期</td><td>申込みから3日以内にお支払いください</td></tr>
+    <tr><td>サービス提供時期</td><td>入金確認後、日程調整のうえ対面セッションを実施（遠方の場合はZoom）。納品物はセッション当日〜3日以内にお渡しします</td></tr>
+    <tr><td>返品・キャンセルについて</td><td>セッション実施日の3日前までのキャンセル：全額返金。2日前以降および実施後：返金不可。詳細は利用規約をご確認ください</td></tr>
+    <tr><td>動作環境</td><td>Claude/ChatGPTが利用できる端末（PC推奨）※遠方の場合はZoom接続環境も必要</td></tr>
+  </table>
+  <p class="lnote">最終更新日：2026年6月13日</p>
+</div>
+
+<div id="modal-terms" class="lmodal" style="display:none">
+  <button class="lmodal-close" onclick="closeModal()" aria-label="閉じる">✕</button>
+  <h3 class="ltitle">note 5分発信セットアップ 利用規約</h3>
+  <p class="lpara">SuTENA合同会社（以下「提供者」）が提供する「note 5分発信セットアップ」（以下「本サービス」）の利用条件を定めるものです。お申込みをもって本規約に同意いただいたものとみなします。</p>
+
+  <h4 class="lh4">第1条　サービス内容</h4>
+  <p class="lpara">本サービスの提供内容は以下の通りです。</p>
+  <ol class="lol">
+    <li>対面による3時間のセットアップセッション（1回）※遠方の場合はZoom</li>
+    <li>納品物6点（記事作成プロンプトセット・サムネイル生成プロンプトセット・挿絵生成プロンプトセット・記事構成テンプレート・運用フロー手順書・Claude活用マニュアル）</li>
+    <li>セッション終了後30日間のチャットサポート（LINE または Messenger）</li>
+    <li>Claude Code 1週間無料トライアルパス（Anthropic公式ゲストパス・先着3名限定）</li>
+  </ol>
+
+  <h4 class="lh4">第2条　料金および支払い</h4>
+  <ol class="lol">
+    <li>料金は申込時に提示された金額とします。</li>
+    <li>支払い方法は銀行振込またはクレジットカード決済とします。</li>
+    <li>お支払いはセッション実施前までにお願いします。入金確認後にサービスを開始します。</li>
+  </ol>
+
+  <h4 class="lh4">第3条　キャンセルおよび返金</h4>
+  <ol class="lol">
+    <li>キャンセルのご連絡はLINEまたはMessengerにてお申し出ください。</li>
+    <li>セッション実施日の3日前までのキャンセル：全額返金します。</li>
+    <li>セッション実施日の2日前以降のキャンセル：返金いたしません。</li>
+    <li>セッション実施後は、いかなる理由があっても返金いたしません。</li>
+    <li>天災・通信障害等、提供者の責によらない理由でセッションが実施できない場合は、日程を変更して対応します。</li>
+  </ol>
+
+  <h4 class="lh4">第4条　納品物の著作権・利用範囲</h4>
+  <ol class="lol">
+    <li>納品物（プロンプト・テンプレート・手順書等）の著作権は提供者に帰属します。</li>
+    <li>購入者は、本サービスの目的（自身のnote発信）のために納品物を使用することができます。</li>
+    <li>購入者は、納品物を第三者へ無断で転載・販売・配布することはできません。</li>
+    <li>購入者が納品物を用いて作成したコンテンツ（記事・画像等）の権利は購入者に帰属します。</li>
+  </ol>
+
+  <h4 class="lh4">第5条　免責事項</h4>
+  <ol class="lol">
+    <li>本サービスは、特定の成果（アクセス数・売上・SEO順位の向上等）を保証するものではありません。</li>
+    <li>提供者は、購入者が本サービスを利用した結果生じた損害について、提供者に故意または重大な過失がある場合を除き、責任を負いません。</li>
+    <li>Claude・ChatGPT等の外部AIツールの仕様変更・サービス停止により納品物の一部が利用できなくなった場合、提供者はその責任を負いません。</li>
+    <li>Claude Code無料トライアルパス（Anthropic公式ゲストパス）の提供条件・仕様はAnthropicの規約に準じます。</li>
+  </ol>
+
+  <h4 class="lh4">第6条　個人情報の取り扱い</h4>
+  <ol class="lol">
+    <li>取得する個人情報：氏名、会社名・屋号、業種、メールアドレス、連絡先</li>
+    <li>利用目的：サービス提供・日程調整・請求書送付・サポート対応のみに使用します。</li>
+    <li>第三者への提供：法令に基づく場合を除き、第三者に提供しません。</li>
+    <li>個人情報に関するお問い合わせはLINEまたはMessengerにてご連絡ください。</li>
+  </ol>
+
+  <h4 class="lh4">第7条　チャットサポートの範囲</h4>
+  <ol class="lol">
+    <li>サポート対応時間は平日10〜18時とし、24時間以内に返信します。</li>
+    <li>対応範囲は本サービスに関する質問（記事作成・テンプレート活用・Claude/ChatGPT操作等）とします。</li>
+    <li>サポート期間はセッション終了日から30日間とします。</li>
+  </ol>
+
+  <h4 class="lh4">第8条　規約の変更</h4>
+  <p class="lpara">提供者は必要に応じて本規約を変更することができます。変更の際は購入者にLINEまたはMessengerにて通知します。</p>
+
+  <h4 class="lh4">第9条　準拠法・管轄</h4>
+  <p class="lpara">本規約は日本法に準拠し、紛争が生じた場合は提供者の所在地を管轄する裁判所を専属的合意管轄とします。</p>
+
+  <p class="lnote">制定日：2026年6月13日　SuTENA合同会社　お問い合わせ：LINE / Messenger、info@sutena.jp</p>
+</div>
+
+<div id="modal-privacy" class="lmodal" style="display:none">
+  <button class="lmodal-close" onclick="closeModal()" aria-label="閉じる">✕</button>
+  <h3 class="ltitle">プライバシーポリシー</h3>
+  <p class="lpara">SuTENA合同会社（以下「当社」）は、「note 5分発信セットアップ」（以下「本サービス」）において取得するお客様の個人情報について、以下の通りプライバシーポリシーを定めます。</p>
+
+  <h4 class="lh4">1. 事業者情報</h4>
+  <table class="ltable">
+    <tr><td>事業者名</td><td>SuTENA合同会社</td></tr>
+    <tr><td>代表者</td><td>小出 梨就</td></tr>
+    <tr><td>所在地</td><td>〒103-0022 東京都中央区日本橋室町1-11-12 日本橋水野ビル7階</td></tr>
+    <tr><td>お問い合わせ</td><td>info@sutena.jp / LINE / Messenger</td></tr>
+  </table>
+
+  <h4 class="lh4">2. 取得する個人情報</h4>
+  <p class="lpara">本サービスのお申込みおよびサポート対応において、以下の情報を取得します。</p>
+  <ul class="lul">
+    <li>氏名</li><li>会社名・屋号</li><li>業種・職種</li><li>メールアドレス</li>
+    <li>LINE / Messenger のアカウント情報</li><li>ご相談・お問い合わせの内容</li>
+    <li>お支払いに関する情報（振込名義等）</li>
+  </ul>
+
+  <h4 class="lh4">3. 個人情報の利用目的</h4>
+  <ol class="lol">
+    <li>本サービスの提供（対面またはZoomセッションの実施・納品物のお渡し）</li>
+    <li>日程調整・請求書の送付・お支払いの確認</li>
+    <li>チャットサポートの対応</li>
+    <li>サービスに関する重要事項のご連絡</li>
+    <li>お問い合わせへの回答</li>
+  </ol>
+  <p class="lpara">上記以外の目的で個人情報を使用する場合は、事前にお客様の同意を得るものとします。</p>
+
+  <h4 class="lh4">4. 個人情報の第三者提供</h4>
+  <p class="lpara">当社は、以下の場合を除き、お客様の個人情報を第三者に提供しません。</p>
+  <ol class="lol">
+    <li>お客様本人の同意がある場合</li>
+    <li>法令に基づく開示が必要な場合</li>
+    <li>人の生命・身体・財産の保護のために必要な場合</li>
+  </ol>
+
+  <h4 class="lh4">5. 個人情報の管理</h4>
+  <ul class="lul">
+    <li>個人情報へのアクセスを業務上必要な者に限定する</li>
+    <li>不要になった個人情報は速やかに削除する</li>
+    <li>外部サービス（LINE・Messenger・Google等）を利用する際は、各サービスのプライバシーポリシーに従う</li>
+  </ul>
+
+  <h4 class="lh4">6. 外部サービスの利用について</h4>
+  <table class="ltable">
+    <tr><th>サービス</th><th>用途</th><th>プライバシーポリシー</th></tr>
+    <tr><td>Zoom</td><td>セッションの実施</td><td><a href="https://explore.zoom.us/ja/privacy/" style="color:var(--teal)">リンク</a></td></tr>
+    <tr><td>LINE</td><td>チャットサポート</td><td><a href="https://line.me/ja/terms/policy/" style="color:var(--teal)">リンク</a></td></tr>
+    <tr><td>Meta Messenger</td><td>チャットサポート</td><td><a href="https://www.facebook.com/privacy/policy/" style="color:var(--teal)">リンク</a></td></tr>
+    <tr><td>Google フォーム</td><td>お申込み受付</td><td><a href="https://policies.google.com/privacy?hl=ja" style="color:var(--teal)">リンク</a></td></tr>
+    <tr><td>Claude（Anthropic）</td><td>サービス提供ツール</td><td><a href="https://www.anthropic.com/privacy" style="color:var(--teal)">リンク</a></td></tr>
+    <tr><td>ChatGPT（OpenAI）</td><td>サービス提供ツール</td><td><a href="https://openai.com/ja/policies/privacy-policy/" style="color:var(--teal)">リンク</a></td></tr>
+  </table>
+
+  <h4 class="lh4">7. 個人情報の開示・訂正・削除</h4>
+  <p class="lpara">お客様は、当社が保有する自己の個人情報について、開示・訂正・削除を請求することができます。ご希望の場合はLINEまたはMessengerにてご連絡ください。本人確認のうえ、合理的な期間内に対応いたします。</p>
+
+  <h4 class="lh4">8. Cookie・アクセス解析について</h4>
+  <p class="lpara">本サービスのLPおよびnote記事においては、現時点でCookieの取得やアクセス解析ツールの導入は行っていません。将来的に導入する場合は、本ポリシーを更新のうえお知らせします。</p>
+
+  <h4 class="lh4">9. プライバシーポリシーの変更</h4>
+  <p class="lpara">当社は、法令の改正やサービス内容の変更に伴い、本ポリシーを改定することがあります。変更の際はLINE・Messengerまたはサービスページにてお知らせします。</p>
+
+  <h4 class="lh4">10. お問い合わせ窓口</h4>
+  <p class="lpara">個人情報の取り扱いに関するご質問・ご相談は、SuTENA合同会社までお問い合わせください。<br>お問い合わせ：info@sutena.jp / LINE / Messenger</p>
+
+  <p class="lnote">制定日：2026年6月13日　最終更新日：2026年6月13日</p>
+</div>
+
+<style>
+.lmodal {
+  position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  z-index: 1001; background: #fff; border-radius: 12px;
+  width: min(720px, 94vw); max-height: 82vh; overflow-y: auto;
+  padding: 40px 36px 36px; box-shadow: 0 20px 60px rgba(0,0,0,.25);
+}
+.lmodal-close {
+  position: sticky; top: 0; float: right; margin: -8px -8px 8px 8px;
+  background: var(--teal-light); border: none; border-radius: 50%;
+  width: 32px; height: 32px; font-size: 14px; cursor: pointer;
+  color: var(--teal-dark); font-weight: 700; line-height: 1;
+}
+.lmodal-close:hover { background: var(--teal); color: #fff; }
+.ltitle { font-size: 18px; font-weight: 700; color: var(--teal-dark); margin-bottom: 16px; }
+.lh4 { font-size: 14px; font-weight: 700; color: var(--teal-dark); margin: 24px 0 8px; padding-bottom: 6px; border-bottom: 1px solid var(--border); }
+.lpara { font-size: 13px; color: var(--gray); line-height: 1.85; margin-bottom: 8px; }
+.lol, .lul { font-size: 13px; color: var(--gray); line-height: 1.85; padding-left: 20px; margin-bottom: 8px; }
+.lol li, .lul li { margin-bottom: 4px; }
+.ltable { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 8px; }
+.ltable th, .ltable td { padding: 10px 12px; border: 1px solid var(--border); vertical-align: top; line-height: 1.7; color: var(--gray); }
+.ltable th { background: var(--teal-light); color: var(--teal-dark); font-weight: 700; }
+.ltable tr td:first-child { width: 38%; }
+.lnote { font-size: 11px; color: var(--gray); margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); }
+</style>
+
+<script>
+function openModal(id) {
+  document.getElementById('modal-overlay').style.display = 'block';
+  document.getElementById('modal-' + id).style.display = 'block';
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('modal-overlay').style.display = 'none';
+  ['tokushoho','terms','privacy'].forEach(function(id){
+    document.getElementById('modal-' + id).style.display = 'none';
+  });
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeModal(); });
+</script>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <strong>SuTENA合同会社</strong><br>
+  〒103-0022 東京都中央区日本橋室町1-11-12 日本橋水野ビル7階<br>
+  <a href="https://sutena.jp">sutena.jp</a>　｜　info@sutena.jp<br>
+  <div style="margin-top:16px;display:flex;gap:20px;justify-content:center;flex-wrap:wrap">
+    <a href="#" onclick="openModal('tokushoho');return false;" style="font-size:12px;color:rgba(255,255,255,.6);text-decoration:underline">特定商取引法に基づく表記</a>
+    <a href="#" onclick="openModal('terms');return false;" style="font-size:12px;color:rgba(255,255,255,.6);text-decoration:underline">利用規約</a>
+    <a href="#" onclick="openModal('privacy');return false;" style="font-size:12px;color:rgba(255,255,255,.6);text-decoration:underline">プライバシーポリシー</a>
+  </div>
+  <span style="display:block;margin-top:12px;font-size:11px;opacity:.5">© 2026 SuTENA合同会社. All rights reserved.</span>
+</footer>
+
+<!-- ─── STICKY CTA（スマホ） ─── -->
+<div class="sticky-cta">
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSc_HdtWNE0VqrvJY07bbC4O0P9nkbGmwbDWCvJvkWnaRAFIaA/viewform?usp=dialog" target="_blank" rel="noopener">今すぐ申し込む（6月限定・先着3名）→</a>
+</div>
+
+</body>
+</html>
