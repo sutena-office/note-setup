@@ -279,6 +279,11 @@
       font-size: 15px; font-weight: 700; text-align: right;
     }
     .how-total span { color: var(--teal); font-size: 20px; }
+    .sp-br { display: none; }
+    @media (max-width: 600px) {
+      .sp-br { display: block; }
+      .how-total { text-align: center; }
+    }
 
     /* ─────────────────────────────
        DELIVERABLES
@@ -713,7 +718,7 @@
         <span class="how-time">約15分</span>
       </div>
       <div class="how-total">
-        合計 <span>約60分</span> → 10日分の記事ストック完成
+        合計 <span>約60分</span><br class="sp-br"> → 10日分の記事ストック完成
       </div>
     </div>
   </div>
