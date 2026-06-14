@@ -134,8 +134,15 @@
     }
     .hero-h1 {
       font-size: clamp(26px, 6vw, 40px);
-      font-weight: 900; line-height: 1.25;
+      font-weight: 900; line-height: 1.35;
       color: var(--teal-dark);
+    }
+    .hero-h1-sp { display: none; }
+    .hero-h1-pc { display: inline; }
+    @media (max-width: 600px) {
+      .hero-h1 { font-size: 36px; }
+      .hero-h1-pc { display: none; }
+      .hero-h1-sp { display: inline; }
     }
     .hero-h1 em {
       font-style: normal;
@@ -561,7 +568,7 @@
     </div>
 
     <h1 class="hero-h1">
-      note投稿 1記事2〜4時間が、<br><em>朝5分</em>になる！
+      <span class="hero-h1-pc">note投稿 1記事2〜4時間が、<br><em>朝5分</em>になる！</span><span class="hero-h1-sp">note投稿<br>１記事2〜4時間が、<br><em>朝５分</em>になる！</span>
     </h1>
 
     <p class="hero-desc">
